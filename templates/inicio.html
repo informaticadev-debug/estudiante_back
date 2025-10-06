@@ -1,0 +1,187 @@
+    <!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">        
+        <link rel="shortcut icon" href="../images/icono.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>SIA.estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body style="overflow-y: hidden" onLoad="varias_funciones()">
+
+        <!--div class='modal fade' id='encuesta_externa'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <i class="fa fa-edit fa-3x text-center" id="icono_modal"></i>
+                        <h4 class='modal-title text-center'>AUTOEVALUACIÓN - Opinión estudiantil</h4>
+                    </div>
+                    <input type="hidden" name="actividad">
+                    <div class='modal-body'>
+                        <h5 id="instruccion_modal"></h5>
+                        <div class="grid simple">
+                            <div class="grid-body">
+                                <h4><small>Como es de su conocimiento, la Carrera de Diseño Gráfico se encuentra en Proceso de Autoevaluación con fines de mejorar, por lo que  se requiere de su opinión  responsable, para contar con información válida y confiable respecto de los factores de la misma.
+                                        *Obligatorio</small></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <div class='pull-right'>
+                            <input class='btn btn-primary btn-small' type='button' onclick="window.open('../encuestas/encuesta_externa_validar.php','_parent')" value='Responder'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+        <div id="wrapper">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img style="margin-top: 2px; margin-left: 2px;" src="../images/logo_farusac.png" width="120">
+                </div>
+
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFF"><i class="fa fa-list-alt"></i> Asignaciones<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width: 280px">
+                            <li>
+                                <!--a href="../asignacion/{asignacion_semestre_seleccion}.php?evaluacion=1" target="contenido"><i class="fa fa-fw fa-list"></i>Primer semestre</a-->
+                                <!-- a href="../asignacion/asignacion_encuesta.php?evaluacion=1" target="contenido"><i class="fa fa-fw fa-list"></i>Primer semestre</a>--> <!--dehabilitar encuesta 202400000-->
+                                <!--a href="../asignacion/asignacion_semestre_seleccion.arq.php?evaluacion=1" target="contenido"><i class="fa fa-fw fa-list"></i>Segundo semestre</a-->
+                                <!--a href="../asignacion/asignacion_semestre_seleccion_jornadadg.php?evaluacion=1" target="contenido"><i class="fa fa-fw fa-list"></i>Segundo semestre</a-->
+                                <a href="../asignacion/asignacion_semestre_seleccion.cunoc.php?evaluacion=1" target="contenido"><i class="fa fa-fw fa-list"></i>Segundo semestre - CUNOC</a>
+                            </li-->
+
+                            <li class="divider"></li>
+                            <!--li>
+                                <a href="../asignacion/asignacion_recuperacion_seleccion.php?evaluacion=3" target="contenido"><i class="fa fa-fw fa-list"></i> 1ra. recuperación</a>
+                            </li-->
+                            <!--li class="divider"></li>
+                            <li>
+                                <a href="../asignacion/asignacion_recuperacion_seleccion.php?evaluacion=4" target="contenido"><i class="fa fa-fw fa-list"></i> 2da. recuperación</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="../asignacion/asignacion_interciclos_seleccion.php?evaluacion=2" target="contenido"><i class="fa fa-fw fa-list"></i> Interciclos</a>
+                            </li>
+                            <li>
+                                <a href="../asignacion/asignacion_interciclos_solicitud.php?evaluacion=2" target="contenido"><i class="fa fa-fw fa-list"></i> > Interciclos - Solicitud</a>
+                            </li -->
+                            <!--li class="{mostrar_etrabajador}"></li>
+                            <li class="{mostrar_etrabajador}">
+                                <a href="../asignacion/asignacion_etrabajador_gestion.php" target="contenido"><i class="fa fa-fw fa-list"></i> Autorización de asignación en primera fecha</a>
+                            </li >
+                            <li class="{mostrarr_ext} divider"></li-->
+                        <!--li class="{mostrarr_ext}">                                
+                                <a href="{url_asign_ext}" target="contenido"><i class="fa fa-clock-o"></i> Complicaciones en la asignación (verifique primero su asignación actual)
+                                    <div class="pull-right">
+                                        <span class="label label-{label_aisgext}">{estado_asigext}</span>
+                                    </div>
+                                </a>
+                            </li-->
+                            <!-- habilitar eliminación de asignaturas-->
+                            <li class="">                                
+                                <a href="../asignacion/asignacion_semestre_eliminacion.php" target="contenido"><i class="fa fa-clock-o"></i> Eliminación de asignaciones - Segundo Semestre 2025
+                                </a>
+                            </li>				
+                            <!-- li class="{mostrar_ext}">
+                                <a href="../asignacion/asignacion_interciclos_solicitud.php?evaluacion=2" target="contenido"><i class="fa fa-fw fa-list"></i>Interciclos - Asignación Tercer Curso</a>
+                            </li -->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFF" target="contenido"><i class="fa fa-user"></i> Perfil<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width: 180px">
+                            <li>
+                                <a href="../personal/datos_personales.php" target="contenido"><i class="fa fa-fw fa-user"></i> Datos personales</a>
+                            </li>
+                            <li class="divider"></li>
+                            <!--li>
+                                <a href="../calendario/calendario_actividades.php" target="contenido"><i class="fa fa-calendar fa-user"></i> Calendario</a>
+                            </li>
+                            <li class="divider"></li-->
+                            <li>
+                                <a href="../index.php"><i class="fa fa-fw fa-power-off"></i> Salir</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../social/notificaciones.php" target="contenido" class="dropdown-toggle" style="color: #FFFFFF"><span id="cantidad_notificaciones"></span><i class="fa fa-bell"></i> </a>
+                    </li>
+                </ul>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse" id="menu_izquierdo">
+                    <ul class="nav navbar-nav side-nav" style="height: 100%; background-color: #0B173B" id="menu_izquierdo">
+                        <!-- BEGIN menu_usuario -->
+                        <li>
+                            {inicio}
+                            {notas}
+                            {estado_cuenta}
+                            {aucas}
+                            {eps}
+                            {proyecto_graduacion}
+                            {certificaciones}
+                            {cierre}
+                            <a href='../docs/documentos.php' target='contenido' OnClick='ocultar_menu_izquierdo()'><i class='fa fa-th-list fa-fw'></i> <font style='font-size: 12px'>Documentos</font></a>
+                        </li>
+                        <!-- END menu_usuario -->
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <iframe id="contenido" style="padding: 0 0 35px 0;" src="../menus/contenido.php" name="contenido"></iframe>
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/notificaciones.js"></script>
+        <script src="../js/funciones.js"></script>
+        {activar_encuesta_externa}
+
+    </body>
+</html>

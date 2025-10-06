@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Asignación - Primera recuperación
+                            </h1>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Asignaturas para recuperación
+                                </div>
+                                <form method="POST" action="asignacion_recuperacion_ordenpago.php">
+                                    <div class="panel-body">
+                                        <ol class="breadcrumb">
+                                            <li class="active">
+                                                <i class="fa fa-edit"></i>Seleccione la (s) asignatura (s), para generar la orden de pago (la cual, aparecerá en el menú "Estado de Cuenta"), 
+                                                cancelar en la fecha programada para validar su asignación.
+                                            </li>
+                                        </ol>
+                                        <div class="list-group">								
+                                            <!-- BEGIN seleccion_asignaturas -->
+                                            <div class="list-group-item">
+                                                <input type="checkbox" value="{pensum}{codigo}{seccion}" name="seleccion[]">
+                                                <font class="btn btn-danger btn-xs" title="Sección en 1ra. recuperación">R</font>
+                                                <div class="pull-right">
+                                                    {seccion}
+                                                </div>
+                                                &nbsp;{codigo} - {asignatura}                                                
+                                            </div>		
+                                            <!-- END seleccion_asignaturas -->
+                                            {sin_asignaciones_disponibles}								
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">&nbsp;
+                                        <div class="pull-right">
+                                            {boton_ordenpago}
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <i class="fa fa-info"></i>NOTA</div>
+                                <div class="panel-body">
+                                    <ul>
+                                        <li>Realizar el pago en las fechas previamente programadas por Junta Directiva.</li>
+                                        <li>Si no confirma el pago, sera anulada la asignación.</li>
+                                        <li>No se examine si no ha realizado el pago correspondiente.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ol class="breadcrumb">
+
+                    <li class="active">
+                        <i class="fa fa-info"></i> 
+                        <b>ARTÍCULO 11. EXÁMENES DE RECUPERACIÓN.</b> 
+
+                        <br>
+
+                        Contempla dos oportunidades y son los que se practican a estudiantes que tienen zona mínima y que no aprobaron la asignatura, teniendo las mismas características y valor de punteo del examen final. Para los exámenes de recuperación se aplica la misma zona obtenida en el curso regular, zona que tendrá vigencia únicamente hasta la segunda oportunidad de recuperación y se rige por su propio normativo.
+
+                        <ul>
+                            <li><b>Pago de derecho de examen.</b> <br>
+                                Se debe generar la orden de pago, en el sistema de control académico de la Facultad; en las fechas previamente aprobadas para dicho proceso y cancelar en el banco descrito en la orden de pago.
+                            </li>
+                            <li><b>Requisitos para sustentar el examen.</b><br>
+                                Para sustentar el examen de recuperación el estudiante deberá realizar los siguientes procesos:
+                                <ul>
+                                    <li>Realizar la pre asignación.</li>
+                                    <li>Generar orden de pago.</li>
+                                    <li>Cancelar la orden de pago en el banco en las fechas previamente aprobadas en el calendario de actividades.</li>
+                                    <li>Presentar el recibo en original al docente el día del examen.</li>
+                                    <li>Carné universitario vigente.</li>
+                                </ul> 
+                            </li>
+                        </ul>
+
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body onLoad="varias_funciones()" style="overflow: hidden;">
+
+
+        <!--div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.8); z-index: 4">
+        </div-->
+
+        <div id="base_perfil">
+            <div id="perfil">
+                <form method="POST" action="../personal/actualizar_datos.php" target="contenido">
+                    <table border="0" width="100%">
+                        <tr>
+                            <td height="50" colspan="2">
+                                <font id="texto-25">Actualización de datos</font><br>
+                                &nbsp;&nbsp;&nbsp;<font id="texto-14">Por favor ingrese sus datos personales de forma correcta</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">Direccion</font></td>
+                            <td>
+                                <input id="txt_form" type="text" value="" name="direccion" placeholder="Dirección exacta" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">Telefono</font></td>
+                            <td>
+                                <input id="txt_formp" type="text" size="10" value="" name="telefono" maxlength="8" pattern="^[0-9]{8,8}" placeholder="8 Digitos" required>
+                            </td>
+                        </tr>			
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">Celular</font></td>
+                            <td>
+                                <input id="txt_formp" type="text" size="10" value="" name="celular" maxlength="8" pattern="^[0-9]{8,8}" placeholder="8 Digitos" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">Correo electrónico</font></td>
+                            <td>
+                                <input id="txt_formp" type="text" size="40" value="" name="email_fda" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Correo electrónico valido" required>
+                            </td>
+                        </tr>
+                        <!-- BEGIN dpi_mayor_edad -->
+                        {mayor_edad}
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">DPI</font></td>
+                            <td>
+                                <input id="txt_formp" size="4" type="text" value="" name="dpi1" maxlength="4" pattern="^[0-9]{4,4}" required>
+                                <input id="txt_formp" size="5" type="text" value="" name="dpi2" maxlength="5" pattern="^[0-9]{5,5}" required>
+                                <input id="txt_formp" size="4" type="text" value="" name="dpi3" maxlength="4" pattern="^[0-9]{4,4}" required>					
+                            </td>
+                        </tr>
+                        <!-- END dpi_mayor_edad -->
+                        <tr>
+                            <td align="right" height="40"><font id="texto-14">Estado civil</font></td>
+                            <td>
+                                <select id="select_formp" name="estado_civil" required>
+                                    <option selected></option>
+                                    <option value="1">Soltero</option>
+                                    <option value="2">Casado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!--tr>
+                                <td align="right" height="40"><font id="texto-14">Contraseña</font></td>
+                                <td>
+                                        <input id="txt_formp" type="text" value="" name="direccion">
+                                </td>
+                        </tr>
+                        <tr>
+                                <td align="right" height="40"><font id="texto-14">Confirmar contraseña</font></td>
+                                <td>
+                                        <input id="txt_formp" type="text" value="" name="direccion">
+                                </td>
+                        </tr-->
+                        <tr>
+                            <td colspan="2" height="50">
+                                <input id="btn_izquierdaRojo" type="button" value="Salir" OnClick="window.open('../index.php', '_parent')">
+                                <input id="btn_derecha" type="submit" value="Actualizár datos">
+                            </td>
+                        </tr>
+                    </table>		
+            </div>
+        </div>
+
+        {actualizar_datos}
+
+        <ul id="menu">	
+            <div id="facultad">
+                <font>Facultad de Arquitectura</font><br>
+                <font>USAC</font><br>
+            </div>
+            <div id="minimizar_navegacion" OnClick="minimizar_panel_izquierdo();" title="Ocultar / Mostrar navegación">
+                <img src="../images/minimizar.png" width="20" height="20">
+            </div>
+            <li>
+                <a id="url_img" href="#"><img id="foto_carnet" src="../images/fotos/{carnet}.jpg" width="20" height="25" border="0"> <font id="txt_menu">{carnet}</font></a>
+                <ul>
+                    <li>Configuración</li>
+                    <li><a href="../personal/perfil.php" target="contenido">Mi perfil</a></li>
+                    <!--li><a href="#">Ayuda</a></li-->
+                    <li><a href="../index.php">Cerrar sesión</a></li>
+                </ul>
+            </li>
+            <li>
+                <a id="url_img" href="../social/notificaciones.php" target="contenido"><img src="../images/notificaciones.png" width="23" height="23" border="0"></a>
+                <a href="../social/notificaciones.php" target="contenido"><div id="numero_not"></div></a>
+            </li>	
+            <li>
+                <a id="url_img" href="#"><img src="../images/asignaciones.png" width="25" height="25" border="0"></a>
+                <ul>
+                    <li id="titulo">Asignaciones</li>
+                    <li><a href="../asignacion/asignacion_semestre_seleccion.php?evaluacion=1" target="contenido">Fin de Semestre</a></li>
+                    <li><a href="../asignacion/asignacion_recuperacion_seleccion.php?evaluacion=3" target="contenido">Primera recuperación</a></li>
+                    <li><a href="../asignacion/asignacion_recuperacion_seleccion.php?evaluacion=4" target="contenido">Segunda recuperación</a></li>
+                    <li><a href="../asignacion/asignacion_interciclos_seleccion.php?evaluacion=2" target="contenido">Interciclos</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <div id="panel_izquierdo">
+            <h1>Navegación</h1>
+            {inicio}
+            {notas}
+            {estado_cuenta}
+            {proyecto_graduacion}
+            {certificaciones}
+            {eps}
+            {aucas}
+            {encuesta_cecilia_santisteban}
+        </div>
+
+
+        <iframe id="iframe_contenido" src="contenido.php" name="contenido"></iframe>
+
+    </body>
+</html>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Eliminación de asignaturas - Segundo Semestre de 2025
+                            </h1>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Seleccione la(s) asignatura(s), que desea eliminar.
+                                </div>
+                                <form method="POST" action="" id="form-eliminar">
+                                    <div class="panel-body">
+                                        <div class="list-group" id="lista-asignaturas">								
+                                            <!-- BEGIN seleccion_asignaturas -->
+                                            <div class="list-group-item">
+                                                <input type="checkbox" value="{pensum}__{codigo}__{seccion}" name="seleccion[]">
+                                                <font class="btn btn-danger btn-xs" title="Seleccione la asignación para eliminar la asignación">E</font>
+                                                <div class="pull-right">
+                                                    {seccion}
+                                                </div>
+                                                &nbsp;{codigo} - {asignatura}                                                
+                                            </div>		
+                                            <!-- END seleccion_asignaturas -->
+                                            {sin_asignaciones_disponibles}								
+                                        </div>
+
+                                        <!-- BEGIN bloque_motivos -->
+                                        <div class="col-xs-12">
+                                            <label class="">Motivo*</label>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <label class="" for="m1">
+                                                <input type="checkbox" name="m1" class="" value="Equipo de cómputo para seguir clases virtuales">
+                                                Equipo de cómputo para seguir clases virtuales
+                                            </label>
+                                        </div>
+					<div class="col-xs-12">
+                                            <label class="" for="m2">
+                                                <input type="checkbox" name="m2" class="" value="Falta de recursos económicos para comprar paquetes de datos de internet">
+                                                Falta de recursos económicos para comprar paquetes de datos de internet
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <label class="" for="m3">
+                                                <input type="checkbox" name="m3" class="" value="No contar con internet residencial">
+                                                No contar con internet residencial
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-12">
+					    <label class="" for="m4">
+                                                <input type="checkbox" name="m4" class="" value="No la pude llevar desde el inicio de la asignación">
+                                                No la pude llevar desde el inicio de la asignación
+                                            </label>
+                                        </div>
+					<div class="col-xs-12">
+                                            <label class="" for="m5">
+                                                <input type="checkbox" name="m5" class="" value="Enfermedad y/o accidente">
+                                                Enfermedad y/o accidente
+                                            </label>
+                                        </div>
+					<div class="col-xs-12">
+                                            <label class="" for="m6">
+                                                Otro: <input type="text" name="m6" class="" value="">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel-footer">&nbsp;
+                                        <div class="pull-right">
+                                            {boton_eliminar}
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function ConfirmDialog(message) {
+                valido = true;
+                mensaje = "";
+                if ($("input[name=m1]").prop("checked") === false && $("input[name=m2]").prop("checked") === false && $("input[name=m3]").prop("checked") === false && $("input[name=m4]").prop("checked") === false && $("input[name=m5]").prop("checked") === false && $("input[name=m6]").val().trim() === ""){
+                    valido = false;
+                    mensaje = "Debe de seleccionar al menos un motivo.";
+                }
+                if ($("#lista-asignaturas input[type=checkbox]:checked").length < 1) {
+                    valido = false;
+                    mensaje = "Debe de seleccionar al menos una asignatura.";
+                }
+                
+                if (valido) {
+                    $('<div></div>').appendTo('body')
+                            .html('<div><h6>' + message + '</h6></div>')
+                            .dialog({
+                                modal: true,
+                                title: 'Eliminación de asignaciones',
+                                zIndex: 10000,
+                                autoOpen: true,
+                                width: '350px',
+                                resizable: false,
+                                buttons: {
+                                    Sí: function () {
+                                        // $(obj).removeAttr('onclick');                                
+                                        // $(obj).parents('.Parent').remove();
+                                        $("#form-eliminar").submit();
+                                    },
+                                    No: function () {
+                                        $(this).dialog("close");
+                                    }
+                                },
+                                close: function (event, ui) {
+                                    $(this).remove();
+                                }
+                            });
+                } else {
+                    $('<div></div>').appendTo('body')
+                            .html('<div><h6 class="text-danger">' + mensaje + '</h6></div>')
+                            .dialog({
+                                modal: true,
+                                title: 'Error al procesar su solicitud',
+                                zIndex: 10000,
+                                autoOpen: true,
+                                width: '350px',
+                                resizable: false,
+                                buttons: {
+                                    Cerrar: function () {
+                                        $(this).dialog("close");
+                                    }
+                                },
+                                close: function (event, ui) {
+                                    $(this).remove();
+                                }
+                            });
+                }
+            }
+            ;
+        </script>
+
+
+    </body>
+</html>

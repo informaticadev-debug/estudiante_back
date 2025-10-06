@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href="../plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="../css/themes/elegant/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header">
+                                Constancia Laboral y declaración jurada.
+                            </h3>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info"></i> Sistema de carga de constancias laborales.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Solicitud
+                                </div>
+                                <form method="POST" action="../asignacion/asignacion_etrabajador_procesar.php" enctype="multipart/form-data">
+                                    <input type="hidden" value="{asignaciones_previas}" id="asignaciones_previas">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered" width="100%">
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Listado de Requisitos</h5></td>
+                                                <td>
+                                                    <ul>
+                                                        <li><b>Declaración Jurada</b>, firmada. *la declaración jurada es requisito indispensable para validar su solicitud.</li>
+                                                        <li><b>Constancia laboral</b>, emitida por la empresa; indicando los datos de la empresa, contacto en la empresa, teléfonos, fecha de inicio de
+                                                            labores, jornada laboral, horario de trabajo.</li>
+                                                        <li><b>Voucher de pago</b>.</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Carga de requisitos</h5></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <div>
+                                                            <label for="files"> <span class="btn btn-default btn-small" id="estado">Por favor, cargue los requisitos</span></label> 
+                                                            <input style="visibility: hidden; position: absolute;" id="files" class="form-control" type="file" name="files" onchange="document.getElementById('estado').className = 'btn btn-primary btn-small'
+                                                                            , document.getElementById('estado').innerHTML = 'Archivo listo para ser cargado';">
+                                                        </div>
+                                                    </div>
+                                                    <span class="label label-info">* Un solo archivo en PDF</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="background-color: #E6E6E6; font-weight: bold;" class="text-center">
+                                                    <span class="text-danger">** La dirección de escuela, de aprobar la solicitud, le notificará a través de la plataforma de estudiantes. **</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" value="Solicitar">
+                                        </div><br /><br />
+                                        <span class="text-danger"><b>** Se denomina declaración jurada a la manifestación personal, escrita, donde se asegura la veracidad de esa misma declaración bajo
+                                                juramento ante autoridades administrativas o judiciales. Como consecuencia se presume como cierto lo señalado por el declarante
+                                                hasta que se pueda acreditar lo contrario. **</b></span>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="../plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../plugins/bootstrap-select2/select2.js" type="text/javascript"></script>
+        <script src="../js/form_validations.js" type="text/javascript"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>

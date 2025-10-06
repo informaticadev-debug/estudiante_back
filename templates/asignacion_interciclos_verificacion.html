@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Asignación - Interciclo
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info"></i> En la verificación se toma en cuenta el costo de la Asignatura y se genera la orden de pago correspondiente.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Verificación de Horarios en la selección
+                                </div>
+                                <div class="panel-body">
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <i class="fa fa-info"></i> Se verifica automáticamente el horario verificando traslapes en secciones (Sí aparece de color rojo es porque tiene traslape)
+                                        </li>
+                                    </ol>                                    
+                                    <div class="list-group">
+                                        <div class="list-group-item {observacion}">
+                                            <div class="btn btn-info btn-xs">Q. {costo_total_asignatura}</div> {veces_asignado} {codigo} - {asignatura} <b>{seccion}</b><br><br>
+                                            <div class="btn btn-warning btn-xs">L-V {inicio}-{fin}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <input class="btn btn-default" type="button" value="Regresar" OnClick='history.go(-1)'>
+                                    <div class="pull-right">                                    
+                                        {btn_siguiente}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

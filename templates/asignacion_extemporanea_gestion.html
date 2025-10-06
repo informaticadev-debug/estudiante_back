@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href="../plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="../css/themes/elegant/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header">
+                                Solicitud para casos de complicación en la asignación
+                            </h3>
+                            <ol class="breadcrumb">
+                                <!--li class="active" style="font-weight: bold; color: green;">
+					<i class="fa fa-info"></i> Solicitud para resolución de inconvenientes de asignación en línea.</i>
+                                </li-->
+                                <h3>
+				<li class="active" style="font-weight: bold; color: red;">
+					<i class="fa fa-info"></i> Previo a realizar la solicitud, por favor, verificar el estado de su asignación.</i>
+									                                    </li></h3>
+                                                                        <h4>
+				<li class="active" style="font-weight: bold; color: rgb(1, 1, 1);">
+					<i class="fa fa-info"></i> En UNA MISMA solicitud detalle con precisión sus requerimientos (asignaturas, secciones y jornadas). <br>**La solicitud, no garantiza su asignación.</i>
+								 </li>
+                                </h4>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Solicitud
+                                </div>
+                                <form method="POST" action="../asignacion/asignacion_extemporanea_procesar.php" enctype="multipart/form-data">
+                                    <input type="hidden" value="{asignaciones_previas}" id="asignaciones_previas">
+                                    <div class="panel-body">
+                                        <!-- BEGIN sin_solicitud_pendiente -->
+                                        <table class="table table-bordered" width="100%">
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Elija una Carrera</h5></td>
+                                                <td>
+                                                    <select class="form-control" name="carrera" required>
+                                                        <option selected></option>
+                                                        <!-- BEGIN listado_carreras -->
+                                                        <option value="{carrera}">{carrera} - {nombre_carrera}</option>
+                                                        <!-- END listado_carreras -->
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Elija un Motivo</h5></td>
+                                                <td>
+                                                    <!-- select class="form-control" name="motivo" onChange="asigext_motivos_obtenerrequisitos(this);" required -->
+                                                    <select class="form-control" name="motivo" required>
+                                                        <option selected></option>
+                                                        <!-- BEGIN listado_motivos_asignacion_extemporanea -->
+                                                        <option value="{motivo}">{nombre_motivo}</option>
+                                                        <!-- END listado_motivos_asignacion_extemporanea -->
+                                                    </select><br>
+                                                        <h3><span class="text-danger">No se operan cambios de sección</span></h3>
+                                                        <h4>Complicación (sea conciso):<br>
+                                                            Indicar nombre de asignaturas, secciones y jornadas:
+                                                        </h4>
+                                                    <div id="contenedor_requisitos"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Observación adicional: <br>(No más de 500 caracteres)</h5></td>
+                                                <td>
+                                                    <textarea class="form-control" rows='5' name="detalle" maxlength="500" required>(Ingrese su solicitud)</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="background-color: #E6E6E6; font-weight: bold;" class="text-center">
+                                                    <span class="text-danger">"Por una gestión de servicio, realizamos nuestro mejor esfuerzo"</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- END sin_solicitud_pendiente -->
+                                        <!-- BEGIN con_solicitud_pendiente -->
+                                        <table class="table table-bordered" width="100%">
+                                            <tr>
+                                                <td width="20%" style="background-color: #E6E6E6; font-weight: bold;" class="text-center"><h5>Solicitud</h5></td>
+                                                <td>{solicitud}</td>
+                                            </tr>
+                                        </table>
+                                        <!-- END con_solicitud_pendiente -->
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" value="Solicitar">
+                                        </div><br><br>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="../plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../plugins/bootstrap-select2/select2.js" type="text/javascript"></script>
+        <script src="../js/form_validations.js" type="text/javascript"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>

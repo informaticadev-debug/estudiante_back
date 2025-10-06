@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Asignación - Semestre
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Revisión de Horarios
+                                </div>
+                                <div class="panel-body">
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <i class="fa fa-info"></i> Si existe un Traslape de Horario tendrá que regresar al paso anterior y corregir su selección.
+                                        </li>
+                                    </ol>
+                                    <form method="POST" action="{formulario_envio}">
+                                        <div class="list-group">
+                                            <!-- BEGIN cursos_seleccionados -->
+                                            <div class="list-group-item {observacion}">
+                                                <input type="hidden" value="{pensum}" name="pensum[]">
+                                                <input type="hidden" value="{codigo}" name="codigo[]">
+                                                <input type="hidden" value="{seccion}" name="seccion[]">
+                                                <input type="hidden" value="{pensum}{codigo}{seccion}" name="seleccion[]">
+                                                <input type="hidden" value="{preasignacion}" name="preasignacion[]">
+                                                <input type="hidden" value="{observacion_traslape}" name="observacion[]">                                                
+                                                {costo} {veces_asignado} {codigo} - {asignatura} <b>{seccion}</b><br><br>
+                                                <!-- BEGIN horarios_seleccion -->
+                                                <div class="btn btn-warning btn-xs">{dia} {inicio}-{fin}</div>
+                                                <!-- END horarios_seleccion -->
+                                            </div>	
+                                            <!-- END cursos_seleccionados -->
+                                        </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <input class="btn btn-default" type="button" value="Regresar" OnClick='history.go(-1)'>
+                                    <div class="pull-right">                                    
+                                        {btn_siguiente}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Asignaciones realizadas
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <!-- BEGIN cursos_asignados -->								
+                                        <div class="list-group-item">
+                                            <div class="pull-right">
+                                                <div class="btn btn-success">{seccion}</div>
+                                            </div>
+                                            {codigo} - {asignatura}<br><br>
+                                            <!-- BEGIN horarios -->
+                                            <div class="btn btn-default btn-xs">{dia} {inicio}-{fin}</div>
+                                            <!-- END horarios -->
+                                        </div>									
+                                        <!-- END cursos_asignados -->
+                                        {sin_asignaciones_disponibles}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

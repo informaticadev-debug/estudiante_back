@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body>
+
+        <div id="menu_header">
+            <font>Examen Privado ></font>
+        </div>
+
+        <div id="content">
+            <table>
+                <tr>
+                    <td>
+                        <font id="texto_20">Exámen Privado,</font><br>
+                        <font id="texto-15">Proceso para solicitar exámen privado.</font>
+                    </td>
+                </tr>		
+            </table> 
+            <table bgcolor="#F2F2F2">
+                <form method="POST" action="../privado/examen_privado_ordenpago.php">
+                    <tr>
+                        <td>				
+                            <!-- BEGIN datos_estudiante -->
+                            <div id="gadget_asignatura">
+                                <font id="texto-15"><b>Carné:</b> {carnet}</font><br>
+                                <font id="texto-15"><b>Nombre:</b> {nombre}</font><br>
+                            </div>	
+                            <!-- END datos_estudiante -->
+                        </td>
+                    </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <div id="bloque_centrado">					
+                            <div id="titulo_bloque">Examen Privado<span>^</span></div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                Hola
+                                            </li>
+                                            <li>
+                                                Hola
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <form>
+            </table>
+        </div>
+
+    </body>
+</html>

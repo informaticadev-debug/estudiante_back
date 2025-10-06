@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+        
+        
+        <div id='base_asignacion_cons'>
+		<div class='modal-dialog'>
+			<div class='modal-content' style='margin-top: 120px'>
+				<div class='modal-header' style='background: #084B8A; color: #FFFFFF'>
+					<h4 class='modal-title' id='myModalLabel'>Asignación consciente</h4>
+				</div>
+				<div class='modal-body'>
+					Analizo, evalúo y decido conscientemente las asignaturas que puedo cursar, con tiempo y dedicación
+				</div>
+				<div class='modal-footer'>
+				</div>
+			</div>
+		</div>
+	</div>
+        
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Asignación
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Horarios disponibles conforme a sus prerrequisitos
+                                </div>
+                                <form method="POST" action="asignacion_semestre_verificacion.php">
+                                    <div class="panel-body">
+                                        <ol class="breadcrumb">
+                                            <li class="active">
+                                                <i class="fa fa-info"></i> Elija la sección en cada asignatura que desea cursar en este semestre
+                                            </li>
+                                        </ol>
+                                        <div class="list-group">
+                                            <!-- BEGIN seleccion_asignaturas -->
+                                            <div class="list-group-item">										
+                                                <font class="btn btn-info btn-xs" title="Secciones de semestre">S</font>
+                                                <div class="pull-right">
+                                                    <select name="cursos[]">
+                                                        <option selected></option>
+                                                        <!-- BEGIN secciones_disponibles -->
+                                                        <option value="{pensum_sec}__{codigo_sec}__{seccion_sec}">{seccion_sec_desc}</option>
+                                                        <!-- END secciones_disponibles -->
+                                                    </select>
+                                                </div>
+                                                &nbsp;{codigo} - {asignatura}                                                
+                                            </div>		
+                                            <!-- END seleccion_asignaturas -->
+                                            {sin_asignaciones_disponibles}								
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <input class="btn btn-default" type="button" value="Cancelar" onclick="window.location.replace('../menus/contenido.php');">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" value="Verificar">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <i class="fa fa-question-circle"></i> Guía y normativo
+                                </div>
+                                <div class="panel-body">
+                                    <ul style="padding-left: 15px">
+                                        <li>
+                                            <b>Las asignaciones son 100% en línea. No presenciales.</b>
+                                        </li>
+                                        <li>
+                                            Para el éxito de su desarrollo académico es importante asignarse en días y horarios en que se cuente con la disponibilidad de tiempo y espacio adecuado para la atención y seguimiento idóneo de las clases.
+                                        </li>
+                                        <li>
+                                            Por seguridad en la información y garantizar tú
+                                            asignación se recomienda <b style="text-decoration: underline;">usar una computadora
+                                                de escritorio o laptop</b>, evitar el uso de dispositivos
+                                            móviles.
+                                        </li>
+                                        <li>
+                                            Las solicitudes de cambios de sección no están permitidas. <b>Sin embargo, para fines
+de nivelación de cupos entre secciones, las Direcciones de Escuela podrán
+realizarlos.</b>
+                                        </li>
+                                        <!--li>
+                                            La solicitud por complicaciones en la asignación se presentará únicamente de
+manera electrónica el <b>jueves 17 de julio de 2025, en horario de 06:00 a 10:00 hrs.</b>
+                                        </li>
+                                        <li>
+                                            El correo electrónico no es válido para solicitar asignaciones.
+                                        </li>
+					
+                                    </ul>
+				    <b>Solicitud de CUPO EXTRA – (La solicitud, no garantiza su asignación)</b> <br />
+				    Esta opción se habilitará únicamente cuando los cupos de las secciones disponibles han agotado su límite.
+                                </div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

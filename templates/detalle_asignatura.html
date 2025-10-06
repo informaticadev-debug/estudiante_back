@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                {codigo} {asignatura}
+                            </h1>                            
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    Seccion: {seccion}<br>
+                                    Laboratorio: {laboratorio}<br>
+                                    Zona: {zona}<br>
+                                    Final: {examen}
+                                </li>
+                            </ol>
+                            <!-- BEGIN datos_asignatura -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">				
+                                <!-- BEGIN puntos_totales -->
+                                <div class="panel-heading">
+                                    {zona_alafecha} <font style="font-size: 18px">{puntos_totales}</font>
+                                </div>
+                                <div class="panel-body">                
+                                    <!-- BEGIN nota_enproceso -->
+                                    <table class="table table-striped">
+                                        <tr bgcolor="#F2F2F2">
+                                            <td colspan="4">
+                                                Nota en Proceso
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="90" align="center">
+                                                Lab. <font id="texto-20">{est_laboratorio}</font>
+                                            </td>
+                                            <td width="90" align="center">
+                                                Zona. <font id="texto-20">{est_zona}</font>
+                                            </td>
+                                            <td width="90" align="center">
+                                                Final. <font id="texto-20">{est_final}</font>
+                                            </td>
+                                            <td width="90" align="center">
+                                                Nota. <font id="texto-20">{est_nota}</font>
+                                            </td>
+                                        </tr>			
+                                    </table>
+                                    <!-- END nota_enproceso -->
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <i class="fa fa-info fa-fw"></i> {nota_cuadro_promediado}
+                                        </li>
+                                    </ol>
+                                </div>				
+                                <!-- END puntos_totales -->                    
+                                <table class="table table-responsive">
+                                    <tr>
+                                        <td>
+                                            <!-- BEGIN cuadro_asignatura -->
+                                            <div class="col-lg-6">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        {numero_bloque} {nombre_bloque} ({ponderacion_bloque} puntos)
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="list-group">
+                                                            <!-- BEGIN detalle_bloque -->
+                                                            <div class="list-group-item">
+                                                                <font class="btn btn-warning btn-xs">{ponderacion_casilla}</font> {nombre_casilla}
+                                                                <!-- BEGIN puntos -->
+                                                                <div class="pull-right">
+                                                                    <font class="btn btn-success btn-xs">{ponderacion}</font>
+                                                                </div>
+                                                                <!-- END puntos -->
+                                                            </div>
+                                                            <!-- END detalle_bloque -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+                                                        <div class="pull-right">
+                                                            <font class="text text-info" style='font-size: 16px; font-weight: bold'>{ponderacion_total_bloque}</font>
+                                                        </div><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END cuadro_asignatura -->
+                                            {sin_cuadro}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

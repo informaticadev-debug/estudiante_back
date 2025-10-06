@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Exámen Privado
+                            </h1>                            
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info fa-fw"></i> Solicitud y estado de examen privado
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <form method="POST" action="../privado/examen_privado_ordenpago.php">		
+                                <!-- BEGIN datos_estudiante -->
+                                <div class="well well">
+                                    <font id="texto-15"><b>Carné:</b> {carnet}</font><br>
+                                    <font id="texto-15"><b>Nombre:</b> {nombre}</font><br><br>
+                                    <font id="texto-15"><b>Carreras activas:</b></font><br>
+                                    <!-- BEGIN inscripcion_estudiante -->					
+                                    <input type="radio" value="{cod_carrera}" name="carrera" required> {carrera}<br>
+                                    <!-- END inscripcion_estudiante -->
+                                </div>	
+                                <!-- END datos_estudiante -->
+                                <!-- BEGIN formulario_solicitud -->
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td colspan="2">
+                                            He concluido ha satisfacción de mis asesores el proyecto de graduación, por lo que solicito se fije fecha, 
+                                            hora y lugar para el examen privado de sustentación del proyecto y se nombre al Tribunal Examinador
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td width="240" align="right">Proyecto de Graduación:</td>
+                                        <td><input class="form-control" type="text" value="{proyecto_graduacion}" name="proyecto_graduacion" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="right"><input class="btn btn-primary" type="submit" value="Siguiente"></td>
+                                    </tr>
+                                </table>                          
+                                <!-- END formulario_solicitud -->
+                                <!-- END formulario_solicitud_dg -->
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td colspan="2">
+                                            Su expediente estará siendo evaluado. Estar atento al estado de su proceso en el sistema.
+                                            <input class='btn btn-primary' type='button' value='Imprimir carta - 3 asesores' OnClick="window.open('../proyecto_graduacion/proyecto_graduacion_carta_aprobacion.php?numero_solicitud={numero_solicitud}','contenido')">
+                                        </td>                                    
+                                    </tr>
+                                </table>    
+                                <!-- END formulario_solicitud_dg -->
+                            </form>
+
+                            <!-- BEGIN solicitudes_disponibles -->							
+                            <div class="list-group">
+                                <!-- BEGIN solicitudes_privado -->
+                                <div class="list-group-item">
+                                    <div class="pull-right">
+                                        {fecha_privado}
+                                        {pago_privado}
+                                    </div>
+                                    {carrera} - {nombre_carrera} <br>
+                                    {proyecto_graduacion}                                    
+                                </div>
+                                <!-- END solicitudes_privado -->
+                            </div>
+                            <!-- END solicitudes_disponibles -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

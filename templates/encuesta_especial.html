@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="José Tobias">
+
+        <title>Sistema de información académica - Administrativo</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        <style>
+            .titulo-instrucciones {
+                font-weight: bold;
+                background-color: darkblue;
+                color: white;
+                padding: 5px 20px;
+                font-size: 1.5em;
+            }
+            .subtitulo-instrucciones {
+
+            }
+            .table-subtitle {
+                background-color: lightgreen;
+                color: darkblue;
+            }
+            .pregunta-label {
+
+            }
+        </style>
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-info"></i>
+                                Estimados estudiantes: <br />
+                                Como todos los semestres, realizamos un proceso de evaluación de los cursos de Diseño Arquitectónico para mejorar la planificación para el siguiente semestre.  <br />
+                                Por lo tanto, necesitamos su opinión sobre el desarrollo del curso que participó este semestre, desde su desempeño hasta las estrategias de enseñanza-aprendizaje implementadas.<br />
+                                Es por ello que se les solicita su colaboración para que contesten la Ficha de Evaluación del Curso de Diseño Arquitectónico, siguiendo las instrucciones planteadas y completando todas las preguntas de manera objetiva.  Es importante su retroalimentación para mejorar los cursos!!!<br />
+                                Muchas gracias anticipadamente por su colaboración y ayuda para mejorar nuestro quehacer docente
+                            </li>                                
+                        </ol>
+                    </div>
+                </div>
+
+                <div id="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Docente: <font style="text-transform: capitalize">{docente}</font>
+                            </div>
+                            <form method='POST' action="../encuestas/encuesta_evaluacion_docente_procesar.php" >
+                                <div class="panel-body">
+                                    <!-- PARTE 1 -->
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <span class="titulo-instrucciones">Parte I: Instrucciones.</span> <br /><br />
+                                            <span class="subtitulo-instrucciones">
+                                                a. Califique cada aspecto enumerado a continuación sobre la escala que represente su criterio. Se utiliza una escala de 1 a 5, donde 1 es lo mínimo y 5 lo máximo.Si alguna pregunta no cuenta con suficiente información para expresar una opinión, marque la casilla de “No opina”.<br />
+                                                b. Marque solo una respuesta a cada pregunta. 
+                                            </span>
+                                        </li>                                
+                                    </ol>                                    
+
+                                    <input type=hidden name="anio" value='{anio}'>
+                                    <input type=hidden name="semestre" value='{semestre}'>
+                                    <input type=hidden name="evaluacion" value='{evaluacion}'>
+                                    <input type=hidden name="carnet"  value='{carnet}'>
+                                    <input type=hidden name="codigo" value='{codigo}'>
+                                    <input type=hidden name="seccion" value='{seccion}'>
+
+
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td colspan="2" class="table-subtitle">AUTOEVALUACIÓN *</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿En qué medida fue el interés, dedicación y compromiso demostrado a lo largo del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[0]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Con qué nivel de calidad elaboré y desarrollé los talleres, asesorías, entregas finales, etc.?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[1]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Fui cumplido y puntual en la entrega de los trabajos?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[2]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Investigué de manera personal sobre los distintos temas tratados en el curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[3]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Cuál fue mi nivel de accesibilidad al material y equipo de apoyo (computadora, Internet, etc.) para el desarrollo del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[4]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Cómo considero el desempeño de mis compañeros en el curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[5]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Cuál fue mi nivel de comunicación con mis compañeros?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[6]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Mi rendimiento académico fue de acuerdo a mis capacidades?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[7]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="table-subtitle">SOBRE EL CURSO *</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Fue suficientemente claro el programa del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[8]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Fueron claros los programas de los ejercicios que se realizaron en el curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[9]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Considera apropiada la secuencia de los ejercicios realizados?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[10]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Tienen relación los énfasis de los ejercicios con las competencias/objetivos de la asignatura?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[11]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Cree que se cumplieron las competencias/objetivos de la asignatura?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[12]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Considera adecuada la metodologia de enseñanza aprendizaje aplicada en el curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[13]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Considera adecuada la dinámica que se realiza en las asesorías?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[14]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Fueron de utilidad las conferencias dictadas durante el desarrollo del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[15]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿En qué medida le fueron de apoyo los documentos (escritos, visuales, etc.) dados para su proceso de aprendizaje?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[16]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">De acuerdo a las competencias/objetivos del curso ¿Es adecuada la bibliografía recomendada?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[17]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Considera adecuado el sistema de evaluación implementado en el curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[18]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Son adecuados los períodos de tiempo programados para las diferentes actividades del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[19]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿En qué nivel obtuvo conocimientos nuevos en la asignatura?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[20]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿En qué medida le sirvieron los conocimientos de otros cursos para el desarrollo de su asignatura?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[21]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Piensa que la asignatura cumplió con sus expectativas de aprendizaje?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[22]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Son adecuadas las condiciones de las aulas y mobiliario para el desarrollo del curso?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[23]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pregunta-label">¿Fue satisfactoria la comunicación entre docente y estudiantes?</td>
+                                            <td>
+                                                <select class="form-control" required name="resp[24]" oninvalid="this.setCustomValidity('Por favor, seleccione una opción.')" oninput="this.setCustomValidity('')">
+                                                    <option selected value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                    <option value="0">No opina</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <!-- PARTE 2 -->
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <span class="titulo-instrucciones">Parte II: Instrucciones.</span> <br /><br />
+                                            <span class="subtitulo-instrucciones">
+                                                Responda de acuerdo a su criterio las preguntas siguientes.
+                                            </span>
+                                        </li>                                
+                                    </ol>
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Qué fue lo más significativo que aprendió en este semestre? *</p>
+                                                <textarea class="form-control" name="comentario[0]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Qué fue lo menos útil de esta asignatura? *</p>
+                                                <textarea class="form-control" name="comentario[1]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Qué conocimientos adquiridos en los ciclos anteriores le sirvieron en esta asignatura? *</p>
+                                                <textarea class="form-control" name="comentario[2]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Cuál de todas las dinámicas de enseñanza aprendizaje desarrolladas en la asignatura fue la más motivadora y por qué? *</p>
+                                                <textarea class="form-control" name="comentario[3]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Qué recomendación daría para mejorar el desarrollo de la asignatura? *</p>
+                                                <textarea class="form-control" name="comentario[4]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="pregunta-label">¿Qué sugerencias le daría a su catedrático para mejorar la calidad de enseñanza-aprendizaje? *</p>
+                                                <textarea class="form-control" name="comentario[5]" rows="3" required oninvalid="this.setCustomValidity('Por favor, ingrese la información solicitada.')" oninput="this.setCustomValidity('')"></textarea>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <input class="btn btn-primary" type=submit value='Enviar encuesta'>
+
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>

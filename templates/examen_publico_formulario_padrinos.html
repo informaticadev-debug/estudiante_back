@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body>
+
+        <div id="menu_header">
+            <font>Examen Público ></font>
+        </div>
+
+        <div id="content">
+            <table>
+                <tr>
+                    <td>
+                        <font id="texto_20">Examen Público de Graduación</font>&nbsp;&nbsp;<font id="texto-14">[Según Acuerdo de Decano  DE-127-2012],</font><br>
+                        <font id="texto-15">Ingreso de informacón requerida para la solicitud de exámen público.</font>
+                    </td>
+                </tr>		
+            </table> 
+            <table bgcolor="#F2F2F2">
+                <form method="POST" action="../publico/examen_publico_padrinos.php">		
+            </table>	
+            <table>
+                <tr>
+                    <td>
+                        <div id="bloque_centrado">				
+                            <div id="titulo_bloque">Formulario de Solicitud de Examen<span>^</span></div>
+                            <table>
+                                <tr>
+                                    <td align="right">Elija una opción:</td>
+                                    <td>
+                                        <select id="select_formp" name="tipo_examen" required>
+                                            <option selected></option>
+                                            <option value="1">Examen individual</option>
+                                            <option value="2">Examen colectivo</option>
+                                        </select>
+                                    </td>
+                                </tr>							
+                                <tr>
+                                    <td align="right"># Padrinos:</td>
+                                    <td>
+                                        <select id="select_formp" name="padrinos" required>
+                                            <option selected></option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                        <font id="texto-12">(Cantidad de Padrinos)</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><br><input id="btn_derecha" type="submit" value="Siguiente"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <form>
+            </table>	
+        </div>
+
+    </body>
+</html>

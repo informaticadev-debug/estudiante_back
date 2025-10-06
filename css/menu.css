@@ -1,0 +1,307 @@
+/* 
+    Document   : menu
+    Created on : 18-mar-2014, 18:53:17
+    Author     : Angel Caal
+    Description:
+        Menu de la Plataforma
+*/
+/* Texto */
+#texto_25 {
+    font-size: 25px;
+}
+
+#texto_18 {
+    font-size: 18px;
+}
+
+#texto_14 {
+    font-size: 14px;
+}
+
+#texto_14Nombres {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+#texto_16 {
+    font-size: 16px;
+}
+
+#texto_titulo {
+    margin-left: 5px;
+}
+
+#texto_30Blanco {
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+
+#capa_login {
+    position: absolute;
+    top: -40px;
+}
+
+#login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    height: 300px;
+    width: 300px;
+    background-color: #FFFFFF;        
+    padding: 10px;
+}
+
+#firma {
+    position: absolute;
+    left: 0px;
+    top: 103%;
+    color: #999999;
+    font-size: 15px;
+    font-family: Calibri
+}
+
+#base_error {
+    font-family: Calibri;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    z-index: 10;
+    background: rgba(0,0,0, 0.5)
+}
+
+#base_error_proceso {
+    font-family: calibri;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    z-index: 10;
+    background: rgba(0,0,0, 0.2);
+}
+
+#error {
+    position: relative;
+    top: 50px;
+    width: 450px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 40px 20px 10px;
+    font-size: 16px;
+    -moz-animation: error_login 0.5s;
+    -webkit-animation: error_login 0.5s;
+    animation: error_login 0.5s;
+    color: #E80D0D;
+}
+
+@-moz-keyframes error_login {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes error_login {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes error_login {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#base_proceso_finalizado {
+    font-family: calibri;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    z-index: 100;
+    background: rgba(0,0,0, 0.2);
+}
+
+#finalizado {
+    position: relative;
+    top: 50px;
+    width: 450px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 40px 20px;
+    font-size: 16px;
+    -moz-animation: proceso_finalizado 0.5s;
+    -webkit-animation: proceso_finalizado 0.5s;
+    animation: proceso_finalizado 0.5s;
+    color: #666666;
+}
+
+#base_mensajes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    z-index: 1;
+    background: rgba(0,0,0, 0.2);
+}
+
+#mensaje {
+    position: relative;
+    top: 25px;
+    width: 450px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 40px 20px;
+    font-size: 16px;
+    -moz-animation: proceso_finalizado 0.5s;
+    -webkit-animation: proceso_finalizado 0.5s;
+    animation: proceso_finalizado 0.5s;
+    color: #666666;
+}
+
+@-moz-keyframes proceso_finalizado {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes proceso_finalizado {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes proceso_finalizado {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#acciones {
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    background: #F2F2F2;
+    color: #666666;
+    font-size: 16px;
+    padding: 10px 0;
+    border-top: 1px solid #DDDDDD;
+}
+
+#btn_rojo{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    background-color: #FE2E2E;
+    border: 0;
+    color: #FFFFFF;
+    font-family: Calibri;
+    font-size: 16px;    
+    padding: 4px 6px;
+    cursor: pointer;
+}
+
+#btn_rojo:hover{
+    background-color: #E80D0D;
+}
+
+#btn_azul{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    background-color: #2E9AFE;
+    border: 0;
+    color: #FFFFFF;
+    font-family: Calibri;
+    font-size: 16px;    
+    padding: 4px 6px;
+    cursor: pointer;
+}
+
+#btn_azul:hover{
+    background-color: #68B6FF;
+}
+
+#contenido {
+    position: absolute;
+    background: #FFFFFF;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 1;
+}
+
+#cantidad_notificaciones {
+    position: absolute;
+    top: 6px;
+    left: 0px;
+    font-size: 10px;
+    font-weight: bold;
+    background: red; 
+    color: #FFFFFF;
+    border-radius: 5px;
+    width: 20px;
+    text-align: center;
+}
+
+#capa_cuadro_completo {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 5px;
+}
+
+#datos_estudiante {
+    position: absolute;
+    z-index: 2;
+    background: #FFFFFF;
+    width: 450px;
+}
+
+#contenedor_casillas {
+    position: relative;
+    margin-left: 450px;
+}
+
+#txt_formPCentrado_cuadro {
+    font-family: Calibri;
+    font-size: 14px;
+    border: 1px solid #999999;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    border-left: 2px solid #585858;
+    font-weight: bold;
+}

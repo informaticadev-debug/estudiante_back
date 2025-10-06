@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body>
+
+        <div id="menu_header">
+            <font>Mi perfil ></font>
+        </div>
+
+        <div id="content">
+            <table>
+                <tr>
+                    <td>
+                        <img id="borde_imagen" src="../images/fotos/{carnet}.jpg" width="12%">
+                        <font id="texto-25">{nombre}</font><br>
+                        <font id="texto-14Margen">
+                        {extension}<br>
+                        <input id="btn" type="button" value="Editar Perfil" OnClick="editar_perfil();">
+                        </font>
+                    </td>
+                </tr>
+            </table> 
+            <table bgcolor="#F2F2F2" style="padding: 0 0 0 5px;">
+                <tr>
+                    <td width="20"><img src="../images/telefono.png" height="20" width="20"></td>
+                    <td valign="top"><font id="texto-14Margen">{telefono}</font></td>
+                </tr>
+                <tr>
+                    <td width="20"><img src="../images/celular.png" height="20" width="20"></td>
+                    <td valign="top"><font id="texto-14Margen">{celular}</font></td>
+                </tr>
+                <tr>
+                    <td width="20"><img src="../images/email.png" height="20" width="20"></td>
+                    <td valign="top"><font id="texto-14Margen">{email_fda}</font></td>
+                </tr>
+                <tr>
+                    <td width="20"><img src="../images/dpi.png" height="20" width="20"></td>
+                    <td valign="top"><font id="texto-14Margen">{dpi}</font></td>
+                </tr>
+                <tr>
+                    <td width="20"><img src="../images/direccion.png" height="20" width="20"></td>
+                    <td valign="top"><font id="texto-14Margen">{direccion}</font></td>
+                </tr>
+            </table>	
+        </div>
+
+    </body>
+</html>

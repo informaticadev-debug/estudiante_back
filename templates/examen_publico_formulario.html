@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Examen Público
+                            </h1>                            
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info fa-fw"></i> El examen público de graduación es el requisito final para poder optar al título en el grado de Licenciatura
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Formulario de actualización de datos
+                                </div>
+                                <form method="POST" action="../publico/examen_publico_instructivo_impresion.php">
+                                    <div class="panel-body">
+                                        <!-- BEGIN datos_estudiante -->
+                                        <div class="well well">
+                                            <font id="texto-15"><b>Carné:</b> {carnet}</font><br>
+                                            <font id="texto-15"><b>Nombre:</b> {nombre_estudiante}</font><br>
+                                            <input type="hidden" value="{nombre_estudiante}" name="nombre_estudiante">
+                                            <!-- BEGIN inscripcion_estudiante -->					
+                                            <input type="radio" value="{cod_carrera}" name="carrera" required> {carrera}
+                                            <!-- END inscripcion_estudiante -->
+                                        </div>	
+                                        <!-- END datos_estudiante -->
+                                        <table class="table table-striped">
+                                            <tr>
+                                                <td width="240" align="right">DPI:</td>
+                                                <td>                                        
+                                                    <input class="form-control-static" type="text" value="{dpi1}" size="3" maxlength="4" name="dpi1" required pattern="^[0-9]{4,4}$"> -
+                                                    <input class="form-control-static" type="text" value="{dpi2}" size="4" maxlength="5" name="dpi2" required pattern="^[0-9]{5,5}$"> -
+                                                    <input class="form-control-static" type="text" value="{dpi3}" size="3" maxlength="4" name="dpi3" required pattern="^[0-9]{4,4}$">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="240" align="right">Correo electrónico:</td>
+                                                <td><input class="form-control-static" type="text" value="{email_fda}" size="50" name="email_fda" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="240" align="right">Confirmar correo:</td>
+                                                <td><input class="form-control-static" type="text" value="{email_fda}" size="50" OnBlur="confirmar_correo(this);" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="240" align="right">Telefono:</td>
+                                                <td><input class="form-control-static" type="text" value="{telefono}" size="8" name="telefono" required pattern="^[0-9]{8,8}$" maxlength="8"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="240" align="right">Direccion de residencia:</td>
+                                                <td><input class="form-control" type="text" value="{direccion}" name="direccion" required></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" value="Siguiente">
+                                        </div><br><br>
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>

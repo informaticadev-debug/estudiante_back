@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de informaci&oacute;n académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Asignaci&oacute;n - Interciclo
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info"></i> Cada Asignatura en Interciclos genera una Orden de Pago.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Selecci&oacute;n de asignaturas para interciclo
+                                </div>
+                                <div class="panel-body">
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <i class="fa fa-info"></i> Seleccione la asignatura a cursar, luego pulse el bot&oacute;n verificar.
+                                        </li>
+                                    </ol>
+                                    <div class="list-group">
+                                        <!-- BEGIN seleccion_asignaturas -->
+                                        <div class="list-group-item">
+                                            <form method="POST" action="asignacion_interciclos_verificacion.php">                                            
+                                                <div class="pull-right">
+                                                    <select name="seccion" required>
+                                                        <option value="no_asignar">No asignar/Remover</option>
+                                                        <!-- BEGIN secciones_disponibles -->
+                                                        <option value="{value}" {seleccionado}>{seccion}</option>
+                                                        <!-- END secciones_disponibles -->
+                                                    </select>
+                                                    <input class="btn btn-primary btn-xs" type="submit" value="Verificar">
+                                                </div>   
+                                                <font class="btn btn-warning btn-xs" title="Asignatura en interciclo">I</font>			
+                                                &nbsp;{codigo} - {asignatura}			
+                                                <input type="hidden" value="{pensum}" name="pensum">
+                                                <input type="hidden" value="{codigo}" name="codigo">                                                                                         
+                                            </form>
+                                        </div>
+                                        <!-- END seleccion_asignaturas -->
+                                    </div>
+                                    {sin_asignaciones_disponibles}                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <i class="fa fa-question-circle"></i> Consejos
+                                </div>
+                                <div class="panel-body">
+                                    No realice el pago de la asignatura hasta recibir confirmaci&oacute;n de que sí se impartirá.<br><br>
+
+                                    Para poder imprimir sus ordenes debe seleccionar del menú el bot&oacute;n Estado de cuenta, al finalizar la segunda fecha de asignación.
+                                    <br><br>
+                                    <b>Artículo 4</b><br />
+                                    4.2 Los estudiantes podrán inscribirse como máximo en dos asignaturas, ya sea dos teóricas o una teórica y una práctica.
+
+                                    <br><br>
+                                    <b>Asignaturas prácticas</b><br />
+                                    1.01.2, 1.01.3, 1.01.4, 1.02.2, 1.02.3, 1.02.4, 1.03.2, 1.04.2, 1.04.4, 1.03.4, 30111, 30112, 30212, 30312, 30412, 30413, 30512 y 30642
+
+                                    <br><br>
+                                    <a href="../docs/pai/Normativo_PAI.pdf" target="_Blanc">Ver Normativo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

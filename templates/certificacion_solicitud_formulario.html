@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Solicitud de certificación
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    1. Elegir de la lista la carrera en la que se desea solicitar la certificación de cursos aprobados.<br>
+                                    2. Con la solicitud realizada dirigirse a la ventanilla de Tesorería (Edificio T-2), para realizar el pago correspondiente.<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1. Días de atención: Lunes, Martes y Miercoles en horario de 09:00 a 12:00 y 14:00 a 18:30<br>
+                                    3. Una vez confirmado el pago, presentarse 3 días habiles después, a la ventanilla única de Control Académico para obtener la certificación<br>
+                                    <font class="text-danger">* Las certificaciones de asignaturas asignadas tienen una vigencia de 30 días hábiles a partir de la fecha de impresión</font>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Formulario de solicitud
+                                </div>
+                                <form method="POST" action="../certificaciones/certificacion_solicitud_procesar.php" OnSubmit="return comprobar_solicitud_certificacion();">
+                                    <div class="panel-body">
+                                        <select class="form-control-static" name="carrera" required>
+                                            <option selected></option>
+                                            <!-- BEGIN listado_carreras -->
+                                            <option value="{codigo_carrera}">{codigo_carrera} - {nombre_carrera}</option>
+                                            <!-- END listado_carreras -->
+                                        </select>
+                                        <select class="form-control-static" name="cantidad" required>
+                                            <option selected>1</option>
+                                        </select>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" size="5" style="text-align: center" value="Solicitar">
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

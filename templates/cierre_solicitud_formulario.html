@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Constancia de cierre de pensum -- únicamente para tramite personal
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    1. Elegir de la lista la carrera en la que se desea solicitar la constancia de cierre de pensum.<br>
+                                    2. Solamente puede solicitar 1 ejemplar de constancias de cierre de pensum.<br>                                    
+                                    3. Presentarse 5 días habiles después, a la recepción de Arquitectura para obtener la constancia de cierre de pensum impresa, firmada y sellada.<br>
+                                    4. <b>Este cierre no es necesario para trámites de proceso académico de graduación o en Registro y estadistica, solamente la unidad de Informática y el Secretario Académico pueden confirmar cierres en Registro y Estadística.</b><br>
+                                    5. Puede soliciar un cierre despúes de un mes de haber solicitado uno anterior.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Formulario de solicitud
+                                </div>
+                                <form method="POST" action="../cierres/cierre_solicitud_procesar.php" OnSubmit="return comprobar_solicitud_certificacion();">
+                                    <div class="panel-body">
+                                        <select class="form-control-static" name="carrera" required>
+                                            <option selected></option>
+                                            <!-- BEGIN listado_carreras -->
+                                            <option value="{codigo_carrera}">{codigo_carrera} - {nombre_carrera}</option>
+                                            <!-- END listado_carreras -->
+                                        </select>
+                                        <select class="form-control-static" name="cantidad" required>
+                                            <option selected>1</option>
+                                        </select>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" size="5" style="text-align: center" value="Solicitar">
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body OnLoad="crecer()">
+
+        <div id="menu_header">
+            <font>Procesos: EPS ></font>
+        </div>
+
+        <div id="content">
+            <table>
+                <tr>
+                    <td>
+                        <font id="texto_20">Pre-Asignacion EPS,</font>
+                    </td>
+                </tr>		
+                <tr>
+                    <td>
+                        <font id="texto_16borde">Proceso de pre-asignación a EPS.</font>
+                    </td>
+                </tr>		
+            </table> 
+            <table bgcolor="#F2F2F2">
+                <tr>			
+                    <td>				
+                        <div id="gadget_instrucciones">
+                            <table border="0">
+                                <tr>
+                                    <td id="paso_actual">
+                                        <span>Paso 1</span><br>
+                                        <font>Ingrese los datos solicitados en el formulario</font>
+                                    </td>
+                                    <td id="paso_incompleto">
+                                        <span>Paso 2</span><br>
+                                        <font>Pre-Asignacion</font>
+                                    </td>					
+                                </tr>
+                            </table>
+                        </div>				
+                    </td>			
+                </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>				
+                        <div id="bloque_centrado">
+                            <div id="titulo_bloque">Seleccione la opcion de EPS<span>^</span></div>
+                            <table>
+                                <form method="POST" action="../asignacion/preasignacion_eps_confirmar.php">
+                                    <!--tr>
+                                            <td align="right" width="300">
+                                                    Direccion
+                                            </td>
+                                            <td>
+                                                    <input id="txt_form" type="text" value="{direccion}" name="direccion" required>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td align="right">
+                                                    Telefono
+                                            </td>
+                                            <td>
+                                                    <input id="txt_form" type="text" value="{telefono}" name="telefono" pattern="([0-9]{8,8})" title="Formato: 00000000" required>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td align="right">
+                                                    Celular
+                                            </td>
+                                            <td>
+                                                    <input id="txt_form" type="text" value="{celular}" name="celular" pattern="([0-9]{8,8})" title="Formato: 00000000" required>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td align="right">
+                                                    Correo Electrónico
+                                            </td>
+                                            <td>
+                                                    <input id="txt_form" type="text" value="{email_fda}" name="email_fda" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Formato: correo@servidor.com" required>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td align="right">
+                                                    DPI
+                                            </td>
+                                            <td>
+                                                    <input id="txt_form" type="text" value="{dpi}" name="dpi" pattern="([0-9]{4,4}) ([0-9]{5,5}) ([0-9]{4,4})" title="Formato: 0000 00000 0000" required>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td align="right">
+                                                    Estado Civil
+                                            </td>
+                                            <td>
+                                                    <select id="select_form" required name="estado_civil">
+                                                            <option selected></option>
+                                    <!-- BEGIN estado_civil -->
+                                    <!--option value="{cod_est_civil}">{est_civil}</option-->
+                                    <!-- END estado_civil -->
+                                    <!--/select>
+                            </td>
+                    </tr-->
+                                    <tr>
+                                        <td align="right" width="100">
+                                            Opcion EPS
+                                        </td>
+                                        <td>
+                                            <select id="select_form" required name="opcion_eps">
+                                                <option></option>										
+                                                <option value="1">IRG</option>
+                                                <option value="2">AMG</option>
+                                            </select>
+                                        </td>
+                                    </tr>							
+                                    <tr>
+                                        <td colspan="2">
+                                            <input id="btn_derecha" type="submit" value="Actualizar información">
+                                        </td>							
+                                    </tr>
+                                </form>
+                            </table>
+                        </div>
+                    </td>
+                </tr>		
+            </table>
+        </div>
+
+    </body>
+</html>

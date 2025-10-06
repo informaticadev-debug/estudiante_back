@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3 class="page-header">
+                                En virtud de conocer el interés de los estudiantes de arquitectura para recibir las asignaturas en el Programa de Asignaturas de Interciclos PAI, favor de contestar la presente encuesta.
+
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Podrán elegir como máximo dos asignaturas en la modalidad siguiente: <br />
+                                    Dos asignaturas teóricas o <br />
+                                    Una teórica y una práctica
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group {ocultar_seleccion_cursos}">
+                                        <form method="POST" action="asignacion_interciclos_solicitar_pre.php" >
+
+                                            <div class="list-group-item row" style="margin: 15px;">
+                                                <div class="pull-right">
+                                                    <select name="curso" required class="form-control">
+                                                        <option value="" selected>Seleccionar</option>
+                                                        <!-- BEGIN cursos_disponibles -->
+                                                        <option value="{value_curso}">{descripcion_curso}</option>
+                                                        <!-- END cursos_disponibles -->
+                                                    </select>
+                                                </div>
+                                                <font class="btn btn-warning btn-xs" title="Asignatura en interciclo">I</font>			
+                                            </div>
+
+                                            <div class="list-group-item row" style="margin: 15px;">
+                                                <div class="pull-right">
+                                                    <select name="curso2" class="form-control">
+                                                        <option value="" selected>Seleccionar</option>
+                                                        <!-- BEGIN cursos_disponibles2 -->
+                                                        <option value="{value_curso2}">{descripcion_curso2}</option>
+                                                        <!-- END cursos_disponibles2 -->
+                                                    </select>
+                                                </div>
+                                                <font class="btn btn-warning btn-xs" title="Asignatura en interciclo">I</font>			
+                                            </div>
+
+
+                                            <br />
+                                            <input class="btn btn-primary" type="submit" value="Finalizar">
+
+                                        </form>
+                                    </div>
+                                    {sin_asignaciones_disponibles}
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <a class="btn btn-primary pull-right" href="../menus/inicio.php">Continuar al portal de estudiantes</a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

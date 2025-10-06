@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Prácticas técnicas intermedias
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info"></i> Revisión de cumplimiento de requisitos y regiones activas en las que puede solicitar asignación
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Formulario para asignación de Prácticas Técnicas Intermedias
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td align="center" width="250"><b>Región</b></td>
+                                            <td align="center"><b>Observación</b></td>
+                                            <td align="center"><b>Requisitos especiales</b></td>
+                                            <td align="center"><b>Cupo</b></td>
+                                            <td align="center" width="120"><b>Asignación</b></td>
+                                        </tr>
+                                        <!-- BEGIN practicas_activas -->
+                                        <tr>
+                                            <form method="POST" action="../aucas/asignacion_aucas_procesar.php">
+                                                <input type="hidden" value="{departamento}" name="departamento">
+                                                <input type="hidden" value="{municipio}" name="municipio">
+                                                <input type="hidden" value="{pensum}" name="pensum">
+                                                <input type="hidden" value="{codigo}" name="codigo">
+                                                <input type="hidden" value="{periodo}" name="periodo">
+                                                <input type="hidden" value="{correlativo}" name="correlativo">
+                                                <td>{nombre_departamento} - {nombre_municipio}</td>
+                                                <td align="center">{observacion}</td>
+                                                <td align="center" class="text-danger">{requisito}</td>
+                                                <td align="center">{cupo}</td>
+                                                <td align="center"><input class="btn btn-primary" type="submit" value="Asignar"></td>
+                                            </form>
+                                        </tr>
+                                        <!-- END practicas_activas -->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

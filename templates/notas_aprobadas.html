@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Detalle de asignaturas cursadas
+                            </h1>
+                            <div class="col-lg-6">
+                                <div class="alert alert-success">
+                                    <form method="POST" action="../personal/notas_aprobadas.php">
+                                        <i class="fa fa-info fa-fw"></i> Asignaturas aprobadas                                        
+                                        <select class="form-control-static" name="carrera" OnChange="submit();">
+                                            <option selected></option>
+                                            <!-- BEGIN carreras_cursadas_na -->
+                                            <option value="{carrera}">{carrera} - {nombre_carrera}</option>
+                                            <!-- END carreras_cursadas_na -->
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="alert alert-danger">
+                                    <form method="POST" action="../personal/notas_aprobadas.php">
+                                        <i class="fa fa-info fa-fw"></i> Asignaturas reprobadas                                        
+                                        <select class="form-control-static" name="carrera_reprobadas" OnChange="submit();">
+                                            <option selected></option>
+                                            <!-- BEGIN carreras_cursadas_nr -->
+                                            <option value="{carrera}">{carrera} - {nombre_carrera}</option>
+                                            <!-- END carreras_cursadas_nr -->
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BEGIN estadistica_notas -->                        
+                        <div class="col-lg-12">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    Listado de asignaturas aprobadas
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-lg-3">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="table table-responsive">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td><font id="texto-16">Promedio</font></td>							
+                                                    <td><font id="texto-16">Creditos</font></td>
+                                                    <td rowspan="2">
+                                                        <font id="texto_16borde"><b>F</b> {fundamentales}</font><br><br>
+                                                        <font id="texto_16borde"><b>E</b> {electivos}</font>
+                                                    </td>
+                                                    <td><font id="texto-16">Asignaturas</font></td>
+                                                    <td rowspan="2">
+                                                        <font id="texto_16borde"><b>F</b> {fundamental}</font><br><br>
+                                                        <font id="texto_16borde"><b>E</b> {electiva}</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><font id="texto-40">{promedio}</font></td>
+                                                    <td><font id="texto-40">{total_creditos}</font></td>
+                                                    <td><font id="texto-40">{asignaturas}</font></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5"><input class="btn btn-primary" type="button" value="Listado de Notas" OnClick="window.open('../personal/listado_notas.php?carrera={carrera}')"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        &nbsp;
+                                    </div>
+                                    <!-- END estadistica_notas -->
+                                    <!-- BEGIN estadistica_notas -->
+                                    <div class="table table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">#</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Estado</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Codigo</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Creditos</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Caracter</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Asignatura</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Fecha</font></td>
+                                            <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Nota</font></td>
+                                            </thead>					
+                                            <!-- BEGIN notas_aprobadas -->
+                                            <tr>
+                                                <td width="20" align="center"><font id="texto-14">{numeracion}</font></td>
+                                                <td width="20" align="center"><div class="btn btn-info btn-xs"  title="{nombre_estado}">{estado}</td>
+                                                <td width="80" align="center"><font id="texto-14">{codigo}</font></td>
+                                                <td width="30" align="center"><font id="texto-14">{creditos}</font></td>
+                                                <td align="center"><font id="texto-14">{caracter}</font></td>
+                                                <td><font id="texto-14">{asignatura}</font></td>
+                                                <td width="80" align="center"><font id="texto-14">{fecha_ciclo}</font></td>
+                                                <td width="40" align="center"><font id="texto-14">{nota}</font></td>
+                                            </tr>
+                                            <!-- END notas_aprobadas -->						
+                                        </table>
+                                    </div>
+                                    <!-- END estadistica_notas -->
+                                    <!-- BEGIN estadistica_notas_reprobadas -->
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                Listado de asignaturas reprobadas
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">#</font></td>							
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Codigo</font></td>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Creditos</font></td>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Caracter</font></td>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Asignatura</font></td>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Fecha</font></td>
+                                                        <td align="center" style="border: 1px solid #DDD;"><font id="texto-14">Nota</font></td>
+                                                        </thead>	
+                                                        <!-- BEGIN notas_reprobadas -->
+                                                        <tr>
+                                                            <td width="20" align="center"><font id="texto-14">{numeracion}</font></td>							
+                                                            <td width="80" align="center"><font id="texto-14">{codigo}</font></td>
+                                                            <td width="30" align="center"><font id="texto-14">{creditos}</font></td>
+                                                            <td align="center"><font id="texto-14">{caracter}</font></td>
+                                                            <td><font id="texto-14">{asignatura}</font></td>
+                                                            <td width="80" align="center"><font id="texto-14">{fecha_ciclo}</font></td>
+                                                            <td width="40" align="center"><font id="texto-14">{nota}</font></td>
+                                                        </tr>
+                                                        <!-- END notas_reprobadas -->						
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <!-- END estadistica_notas_reprobadas -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

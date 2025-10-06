@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div class='modal fade' id='listado_cursos_lab'>
+            <div class='modal-dialog' style="margin-top: 50px;">
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h4 class='modal-title text-center'>Asignaturas en laboratorio de computaci&oacute;n</h4>
+                    </div>
+                    <form method="POST" action="../financiero/financiero_ordenespago_laboratorio_procesar.php">
+                        <div class='modal-body'>
+                            <h5></h5>
+                            <div class="grid simple">
+                                <div class="grid-body">
+                                    <h4><small>A continuaci&oacute;n seleccione las asignaturas que cursar&aacute;, tome en cuenta que debe confirmar el pago antes de asignarse el curso</small></h4>
+
+                                    <table class="table table-responsive" id="contenedor_cursos_lab">
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='modal-footer'>
+                            <div class='pull-right'>
+                                <input class='btn btn-primary btn-small' type='submit' value='Generar boleta'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Estado de cuenta
+
+                            </h1>                            
+                            <!-- ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info fa-fw"></i> Detalle de pagos pendientes - Último día para pago de cursos de laboratorio - Primer Semestre 2019: 31 de Enero de 2019
+                                </li >
+                            </ol -->
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info fa-fw"></i> <b>Normativo PAI: Artículo 7</b><br />
+                                    7.1 El estudiante deberá pagar la cuota de la asignatura y de la inscripción en el banco definido por la Coordinación del PAI,
+                                    para lo cual tiene un plazo de tres días contados a partir de la fecha de la segunda asignación.<br />
+                                    7.3 Si un estudiante no hace los pagos correspondientes en el tiempo estipulado, se le dará de baja automáticamente de la asignatura.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <!--div class="pull-right">
+                                        <input class="btn btn-warning btn-xs" type="button" value="Laboratorio de computación" onclick="cursos_laboratorio()">
+                                    </div-->
+                                    Detalle de ordenes de pago
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <!-- BEGIN ordenes_pago -->
+                                        <div class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="btn btn-primary btn-xs" type='button' value="Orden de Pago" OnClick="window.open('../financiero/imprimir_ordenpago.php?anio={anio}&semestre={semestre}&orden_pago={orden_pago}&evaluacion={id_evaluacion}', 'contenido')">
+                                            </div>
+                                            <font class="{evaluacion}">{evaluacion}</font>						
+                                            <font id="texto-14">{codigo} {asignatura} <b>{seccion}</b></font>                                            
+                                        </div>
+                                        <!-- END ordenes_pago -->
+                                        <center>{sin_ordenes_pendientes}</center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>

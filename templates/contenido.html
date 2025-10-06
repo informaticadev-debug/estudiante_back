@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de informaci&oacute;n acad&eacute;mica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+	<script src="../js/jquery.min.js"></script>
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Inicio
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-home"></i> Inicio
+                                    <br />
+                                    <br />
+                                    En el menu - Documentos - encontrará instructivos, normativos y requerimientos de interes a lo largo de su carrera académica.
+                                    
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- div class="row">
+                        <center>
+                            <a href="http://estudiante.arquitectura.usac.edu.gt/asignacion/asignacion_interciclos_solicitud_pre.php" target="_blank"><h1> --&gt; Solicitud de cursos para interciclos 2020-2 &lt;--- </h1></a>
+                        </center>
+                    </div -->
+                    <!--div class="row">
+                        <center>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScjDgII5k577lQzMdiNZE0n1U0PZuXnw65qAr1Vm5hPpuWBpA/viewform" target="_blank">
+                                <img class="img-rounded img-responsive" width="1024" src="../images/cintillo-60anios.png" />
+                            </a>
+                        </center>
+                    </div> <br /-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    {saludo}
+                                </div>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td rowspan="4" width="150">
+                                            {fotografia}
+                                        </td>
+                                        <td>
+                                            <font id="texto_16">{carnet} - {nombre}</font>
+                                        </td>
+                                    </tr>
+                                    <!-- BEGIN datos_estudiante -->
+
+                                    <tr>
+                                        <td>
+                                            <font id="texto_16">{extension}</font>
+                                        </td>
+                                    </tr>                
+                                    <!-- END datos_estudiante -->
+                                    <tr>
+                                        <td>
+                                            <font id="texto_16">Ciclo académico {anio}</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="{fondo_inscripcion}">
+                                            <font id="texto_16">{carrera}</font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>						
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">                                    
+                                    Asignaciones en el ciclo actual
+                                </div>
+                                <form method="POST" id="form_asignaciones">
+                                    <div class="panel-body">			
+
+                                        <table class="table table-striped">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <input type="checkbox" value="" onClick="seleccionar_asignaciones(this)">
+                                                </td>
+                                                <th class="text-center">
+                                                    Asignatura
+                                                </th>
+                                            </tr>
+                                            <!-- BEGIN asignaciones -->
+                                            <tr>
+                                                <td align=center>
+                                                    <!--input type="checkbox" value="{id_evaluacion}{codigo}{seccion}" name="codigo[]"-->
+                                                    <input type="checkbox" value="{codigo}" name="codigo[]">
+                                                </td>
+                                                <td>
+                                                    <div class="pull-right">
+                                                        {evaluacion}
+                                                    </div> 
+                                                    <a href="../asignatura/detalle_asignatura.php?anio={asignacion_anio}&semestre={asignacion_semestre}&codigo={codigo}&evaluacion={id_evaluacion}&pensum={pensum}">                                                        
+                                                        {asignacion}
+                                                    </a>			
+                                                </td>
+                                            </tr>
+                                            <!-- END asignaciones -->                                            
+                                        </table>
+                                        {sin_asignaciones}
+                                    </div>
+                                    <div class="panel-footer">
+                                        <select class="form-control" OnChange="procesos_asignaciones(this);">
+                                            <option></option>
+                                            <!-- BEGIN opciones_asignatura -->
+                                            {desasignacion}
+                                            {constancia_asignacion}
+                                            <!-- END opciones_asignatura-->
+                                        </select>
+                                    </div>  
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">                                    
+                                    Correo institucional
+                                </div>
+                                <div class="panel-body">
+                                    URL: <a href="http://mail.google.com/" target="_blanck">Gmail</a><br>
+                                    Correo institucional: {correo_institucional}<br>
+                                    Contraseña temporal: {contrasena_temporal}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/funciones.js"></script>
+        <script type="text/javascript">
+        /*window.onload = function() {
+           // window.open('http://estudiante.arquitectura.usac.edu.gt/docs/Circular_UDICA_17_2018.pdf','Circular UDICA 17-2018',' menubar=0, resizable=0,dependent=0,status=0,width=500,height=500,left=10,top=10')
+
+        }*/
+        </script>
+    </body>
+</html>

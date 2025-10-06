@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                E.P.S.
+                            </h1>                            
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info fa-fw"></i> Solicitudes de Ejercicio Profesional Supervisado
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- BEGIN solicitud_eps -->			
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Introducción E.P.S.
+                        </div>
+                        <div class="panel-body">
+                            <center><b>NORMATIVO DEL EJERCICIO PROFESIONAL SUPERVISADODE LA LICENCIATURA DE ARQUITECTURA FACULTAD DE ARQUITECTURA,
+                                    UNIVERSIDAD SAN CARLOS DE GUATEMALA<br></b>
+
+                                Aprobado por Junta Directiva en el punto primero inciso 1.1 del acta 05-2006 en sesión del 21 de marzo del 2006<br>
+                                (Artículo 1)</center><br><br>
+
+                            El programa EPSDA como parte integrante de la Facultad y de la Universidad de San Carlos de Guatemala, se encuentra enmarcado
+                            dentro de las políticas, fines y objetivos de la Facultad de Arquitectura y de la Universidad de San Carlos de Guatemala.<br><br>
+
+                            <b>Artículo 1. Definición: </b>El EPSDA de Arquitectura de la Universidad de San Carlos de Guatemala, es un programa de extensión
+                            académico-docente, en el que por requerimiento curricular previo a graduarse y ejercer la profesión, participan estudiantes de 
+                            último grado que han completado los requisitos académicos y administrativos que exige la Facultad, Se contemplan dos modalidades
+                            EPS IRG que significa que se lleva a cabo en el interior de la República de Guatemala y el EPS AMG que se lleva a cabo en 
+                            el Area Metropolitana de Guatemala, desarrollándose en el primer caso dos cohortes al año y en segundo una cohorte al año.
+                        </div>
+                        <div class="panel-footer">
+                            <form method="POST" action="../eps/eps_solicitud_procesar.php">
+                                <input type="hidden" value="{evaluacion}" name="evaluacion">
+                                <input type="hidden" value="{pensum}" name="pensum">
+                                <input type="hidden" value="{codigo}" name="codigo">
+                                <input type="hidden" value="{carnet}" name="carnet">
+                                <input type="hidden" value="{carrera}" name="carrera">
+                                <select class="form-control-static" name="region_eps" required>
+                                    <option selected></option>
+                                    <!--option value="1">E.P.S - AMG</option-->
+                                    <option value="2">E.P.S - IRG</option>
+                                </select> 
+                                <input class="btn btn-primary" type="submit" value="Solicitar">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END solicitud_eps -->
+                    <!-- BEGIN estado_eps -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Estado de E.P.S
+                        </div>
+                        <div class="panel-body">
+                            {estado}<br><br>
+
+                            <div class="list-group">
+                                <!--a class="list-group-item" href="../docs/eps/Requisitos EPS.pdf" target="_blanck">Requisitos para realizar Ejercicio Profesional Supervisado</a-->
+                                <a class="list-group-item" href="../docs/eps/Calendario.pdf" target="_blanck">Calendario</a>
+                                <!--a class="list-group-item" href="../docs/eps/Curriculum.pdf" target="_blanck">Curriculum Vitae</a-->
+                                <a class="list-group-item" href="../docs/eps/Informacion_AMG.pdf" target="_blanck">Información importante para EPS</a>
+                                <a class="list-group-item" href="https://docs.google.com/forms/d/e/1FAIpQLSfux-XN6qkN_Q_2XnW6leUx1ZZXR4fdAIesQ7Vdt5du7EfVjg/viewform?c=0&w=1" target="_blanck">Inscripción en línea</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END estado_eps -->
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

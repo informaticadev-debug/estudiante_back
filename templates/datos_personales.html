@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="page-header">
+                                Información Personal
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 class="text-success">
+                                {mensaje_aviso}
+                            </h3>
+                            <h3 class="text-danger">
+                                {mensaje_error}
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Actualización de datos <span class="h3">{mensaje_obligatorio_datos}</span>
+                                </div>
+                                <form method="POST" action="" >
+                                    <div class="panel-body">
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label"></label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <label class="form-label text-info" style="font-size: 12px;">*Nota: Para actualizar el nombre o el CUI debe dirigirse a Registro y Estadística y remitir correo a informatica@farusac.edu.gt cuando culmine el proceso en Registro y Estadística.</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">Registro Académico:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                {est_ra}
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">CUI:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                {est_cui}
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">Nombre:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                {est_nombre}
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">*Correo Personal:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" type="email" name="email_fda" value="{est_email_fda}" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">*Celular:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" type="number" maxlength="8" minlength="8" name="celular" value="{est_celular}" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">Teléfono:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" type="number" maxlength="8" minlength="8" name="telefono" value="{est_telefono}" />
+                                            </div>
+                                        </div>
+					<div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                 <label class="form-label">Dirección:</label>
+                                            </div>
+                                           <div class="col-xs-6 text-left">
+                                                    <input class="form-control input-sm" type="text" name="direccion" value="{est_direccion}" />
+                                           </div>
+                                       </div>
+
+
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" size="5" style="text-align: center" value="Actualizar">
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12  col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Cambio de contraseña <span class="h3">{mensaje_obligatorio_passwd}</span>
+                                </div>
+                                <form method="POST" action="" >
+                                    <div class="panel-body">
+
+                                        <div class="row"> 
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">*Contraseña Actual:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" type="password" name="passwd" value="" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">*Nueva Contraseña:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" id="passwd1" type="password" name="passwd1" pattern=".{8,}" title="Debe de tener al menos 8 characteres" value="" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 text-right">
+                                                <label class="form-label">*Confirmar Nueva Contraseña:</label>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <input class="form-control input-sm" id="passwd2" type="password" name="passwd2" pattern=".{8,}" title="Debe de tener al menos 8 characteres" value="" required />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" type="submit" size="5" style="text-align: center" value="Cambiar">
+                                        </div><br><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var passwd1 = document.getElementById("passwd1")
+                    , passwd2 = document.getElementById("passwd2");
+
+            function validatePassword() {
+                if (passwd1.value != passwd2.value) {
+                    passwd2.setCustomValidity("El password no coincide");
+                } else {
+                    passwd2.setCustomValidity('');
+                }
+            }
+
+            passwd1.onchange = validatePassword;
+            passwd2.onkeyup = validatePassword;
+        </script>
+
+
+    </body>
+</html>

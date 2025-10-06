@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Administrativo</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        <script language="javascript" type="text/javascript">
+
+            function vacio(q) {
+                for (i = 0; i < q.length; i++) {
+                    if (q.charAt(i) != " ") {
+                        return true
+                    }
+                }
+                return false
+            }
+
+            function valida(F) {
+
+                if (vacio(F.respuesta1.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta2.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta3.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta4.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta5.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta6.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta7.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta8.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta9.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta10.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta11.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta12.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta13.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta14.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta15.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta16.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta17.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta18.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+                /*
+                if (vacio(F.respuesta19.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }
+
+                if (vacio(F.respuesta20.value) == false) {
+                    alert("Debe responder todas las preguntas (Verifique los campos vacios)")
+                    return false
+                }*/
+            }
+
+
+
+        </script>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active"> 
+                             <h3>Evaluacion Docente</h3>
+                            </li>                                
+                        </ol>
+                    </div>
+                </div>
+
+                <div id="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Docente: <font style="text-transform: capitalize">{docente}</font>
+                            </div>
+                            <form method='POST' action="../encuestas/encuesta_evaluacion_docente_procesar.php" onSubmit="return valida(this);">
+                                <div class="panel-body">
+                                    <ol class="breadcrumb">
+                                        <li class="active">
+                                            <h4>
+						<i class="fa fa-info"></i> 
+A continuación encontrará una serie de preguntas para evaluar el desempeño del docente que imparte la asignatura que está cursando en el PAI Junio 2025.</h4>
+<br>- Solicitamos que sus respuestas estén apegadas a la ética y al ideal del docente universitario.
+<br>- Al finalizar, encontrará un espacio para sus comentarios, serán transmitidos al docente textualmente y de manera anónima, por lo que agradecemos utilice un lenguaje adecuado.
+<br /> <br /><b>
+Escala de ponderación: <br />           
+5 - Siempre <br />
+4 - Casi siempre<br />
+3 - A veces<br />
+2 - Casi nunca<br />
+1 - Nunca 
+</b>
+
+                                        </li>                                
+                                    </ol>                                    
+
+                                    <input type=hidden name="anio" value='{anio}'>
+                                    <input type=hidden name="semestre" value='{semestre}'>
+                                    <input type=hidden name="evaluacion" value='{evaluacion}'>
+                                    <input type=hidden name="carnet"  value='{carnet}'>
+                                    <input type=hidden name="codigo" value='{codigo}'>
+                                    <input type=hidden name="seccion" value='{seccion}'>
+
+
+                                    <table class="table table-striped">
+					    <tr><td colspan='3' style='text-align: center;'><b>SOBRE EL DESARROLLO DEL CURSO</b></td></tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">1.</p></td>
+                                            <td><p>¿Se cumple con lo planificado en el programa de la asignatura?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta1>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">2.</p></td>
+                                            <td><p>¿El profesor domina los temas de la asignatura?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta2>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">3.</p></td>
+                                            <td><p>¿Es adecuada la comunicación entre el profesor y el alumno?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta3>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">4.</p></td>
+                                            <td><p>¿El profesor varia las actividades en clase?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta4>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">5.</p></td>
+                                            <td><p>¿El profesor utiliza medios gráficos o aplicaciones variadas para el desarrollo de la clase?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta5>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">6.</p></td>
+                                            <!-- td><p>¿Analiza con los estudiantes la programación y contenidos del curso?</p></td -->
+                                            <td><p>¿El profesor resuelve dudas durante y después  del período de clase?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta6>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">7.</p></td>
+                                            <td><p>¿El profesor relaciona temas de la asignatura con el desempeño profesional?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta7>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">8.</p></td>
+                                            <td><p>¿Las exposiciones del profesor son claras y ordenadas?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta8>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">9.</p></td>
+                                            <td><p>¿El profesor mantiene el respeto y orden de los estudiantes?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta9>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">10.</p></td>
+                                            <td><p>¿La metodología de enseñanza aprendizaje que utiliza el profesor en la asignatura es adecuada?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta10>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">11.</p></td>
+                                            <td><p>¿Las hojas de trabajo, guías o ejercicios contiene instrucciones fácilmente comprensible?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta11>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">12.</p></td>
+                                            <td><p>¿Las herramientas de  evaluación utilizadas son objetivas y adecuadas al desarrollo del curso en modo virtual de enseñanza?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta12>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+					<tr><td colspan='3' style='text-align: center;'><b>SOBRE LAS CONEXIONES Y EQUIPO</b></td></tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">1.</p></td>
+                                            <td><p>¿Considera tener el equipo de computación adecuado para recibir los cursos impartidos durante el PAI y los que recibirá durante el próximo semestre?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta13>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">2.</p></td>
+                                            <td><p>¿La conexión de internet que posee en su residencia es adecuada para recibir los cursos?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta14>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">3.</p></td>
+                                            <td><p>¿Requiere de actividades variadas durante la clase para mantener la atención?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta15>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">4.</p></td>
+                                            <td><p>¿Tengo el conocimiento necesario para utilizar las aplicaciones educativas que por el momento se han utilizados?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta16>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">5.</p></td>
+                                            <td><p>¿Tengo el interés de explorar el uso de aplicaciones de aparendizaje nuevas?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta17>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">6.</p></td>
+                                            <td><p>¿Esta cursando una asignatura de PAI por recuperación o para adelantar?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta18>
+                                                    <option selected></option>
+                                                    <!--option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option!-->
+                                                    <option value="2">Nivelación</option>
+                                                    <option value="1">Recuperación</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <!--tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">19.</p></td>
+                                            <td><p>¿Demuestra ética y moral durante el desarrollo de su clase magistral?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta19>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold">20.</p></td>
+                                            <td><p>¿Establece adecuadas relaciones interpersonales con el estudiante y el grupo?</p></td>
+                                            <td>
+                                                <select class="form-control" name=respuesta20>
+                                                    <option selected></option>
+                                                    <option value="5">Siempre</option>
+                                                    <option value="4">Casi siempre</option>
+                                                    <option value="3">A veces</option>
+                                                    <option value="2">Casi nunca</option>
+                                                    <option value="1">Nunca</option>
+                                                </select>
+                                            </td>
+                                        </tr -->
+                                        <tr>
+                                            <td align=center bgcolor=#0B2161 width=40><p style="color: #FFFFFF; font-weight: bold"></p></td>
+                                            <td colspan="2">
+                                                <textarea class="form-control" name="comentario" rows="7" placeholder="¿Qué aspectos considera que debe de mejorarse?" required></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=3 align="center"><input class="btn btn-primary" type=submit value='Enviar encuesta'></td>
+                                        </tr>
+                                    </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/funciones.js"></script>
+
+</body>
+</html>

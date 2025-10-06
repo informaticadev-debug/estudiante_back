@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sistema de Información Académica - Estudiante</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+        <script type="text/javascript" src="../js/funciones.js"></script>
+    </head>
+    <body>
+
+        <div id="error_proceso">
+            <table id="titulo_error">
+                <tr>
+                    <td>
+                        <font id="texto-18">Aviso</font>
+                    </td>
+                </tr>
+            </table>
+            <!-- BEGIN error -->
+            <table id="contenido_error">
+                <tr>
+                    <td>
+                        <font id="texto-16">{mensaje_error}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="btn">
+                            <input type="button" value="Ir al inicio" OnClick="window.open('../menus/inicio.php', '_parent');">
+                            <span>></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!-- END error -->
+        </div>
+
+    </body>
+</html>

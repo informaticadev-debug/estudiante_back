@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Facultad de Arquitectura - USAC">
+        <meta name="author" content="Angel Caal">
+
+        <title>Sistema de información académica - Estudiante</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/menu.css" rel="stylesheet">
+
+        <!-- Bootstrap theme -->
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="../js/ie-emulation-modes-warning.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {mensaje_aviso}
+
+        {mensaje_error}
+
+        {mensaje_proceso_finalizado}
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Solicitud aprobación de protocolo - verificación
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-info"></i> Es importante verificar que todos los datos ingresados son correctos
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Verificar datos
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td width="150" align="right">
+                                                Antecedentes
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{antecedentes}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Justificación
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{justificacion}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Objetivos
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{objetivos}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Planteamiento del problema
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{planteamiento_problema}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Delimitación
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{delimitacion}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Métodos
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{metodos}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Bibliografía
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{bibliografia}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Modalidad
+                                            </td>
+                                            <td>
+                                                <font id="texto-14">{modalidad}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                Asesores
+                                            </td>
+                                            <td>
+                                                <!-- BEGIN datos_asesores -->
+                                                <font id="texto-14" style="text-transform: capitalize">{nombre}</font><br>
+                                                <!-- END datos_asesores -->
+                                                <font id="texto-14" style="text-transform: capitalize">{ae_nombres}</font><br>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="panel-footer">
+                                    <input class="btn btn-default" type="button" value="Cambiar información" OnClick="window.open('../proyecto_graduacion/proyecto_graduacion_protocolo_formulario.php', 'contenido')">
+                                    <div class="pull-right">
+                                        <!--input class="btn btn-primary" type="button" value="Imprimir Cartas" OnClick="window.open('../proyecto_graduacion/proyecto_graduacion_protocolo_cartasaceptacion.php', 'contenido')"-->
+                                        <input class="btn btn-primary" type="button" value="Confirmar datos" OnClick="window.open('../proyecto_graduacion/proyecto_graduacion_protocolo_procesar.php', 'contenido')">
+                                    </div>
+                                </div>
+                            </div>                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/funciones.js"></script>
+
+    </body>
+</html>
